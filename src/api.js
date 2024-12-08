@@ -3,7 +3,7 @@ import { getTokenInfo } from './utils/tokenUtils';
 
 
 
-const API_URL = 'http://localhost:8080/api'; 
+const API_URL = 'https://seapbackend-production.up.railway.app/api'; 
 axios.interceptors.request.use(
     config => {
         const token = localStorage.getItem('token');
