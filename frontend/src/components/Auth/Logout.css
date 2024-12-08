@@ -1,0 +1,70 @@
+/* General Link Style */
+.logout-link {
+  background: none;
+  text-decoration: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 12px 24px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover and Click Styles */
+.logout-link.hovered {
+  transform: translateY(-1px);
+  color:#fff;
+  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 0, 0, 0.8);
+  border: 2px solid rgba(255, 0, 0, 0.8);
+  animation: pulse 5s infinite;
+}
+
+.logout-link.clicked {
+  transform: scale(0.95) translateY(2px);
+  background-color: rgba(255, 0, 0, 0.9);
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+/* Span Styles */
+.logout-link span {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+/* Span Hover Effects */
+.logout-link span.hovered {
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Span Underline */
+.logout-link span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}

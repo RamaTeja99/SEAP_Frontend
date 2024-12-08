@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.student-list-container {
+  background-color: var(--college-background-color);
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--college-text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.student-list-container h3 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: var(--college-text-color);
+}
+
+.student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--college-background-color);
+  margin-bottom: 8px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.student-item:hover {
+  background: linear-gradient(135deg, var(--surface-color), var(--college-secondary-color));
+}
+
+.student-roll {
+  color: var(--college-text-color);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.student-roll:hover {
+  color: var(--college-sky-blue);
+}
+
+.icon-container {
+  display: flex;
+  gap: 40px;
+}
+
+.details-icon,
+.edit-icon,
+.delete-icon {
+  color: var(--college-text-color);
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 32px; /* Increase the icon size */
+}
+
+.details-icon:hover {
+  color: #0fc740;
+  transform: scale(1.1);
+}
+
+.edit-icon:hover {
+  color: #007bff; /* Change the hover color of the edit icon */
+  transform: scale(1.1);
+}
+
+.delete-icon:hover {
+  color: #f44336;
+  transform: scale(1.1);
+}

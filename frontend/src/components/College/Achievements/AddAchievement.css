@@ -1,0 +1,95 @@
+.add-achievement-form {
+  background: var(--college-background-color);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  max-width: 500px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+.add-achievement-form h3 {
+  color: var(--college-primary-color);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.form-title {
+  color: var(--college-primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.add-achievement-form label {
+  color: var(--college-text);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.add-achievement-form input.achievement-input,
+.add-achievement-form select,
+.add-achievement-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--college-text-color);
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--college-text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.add-achievement-form input.achievement-input:focus,
+.add-achievement-form select:focus,
+.add-achievement-form textarea:focus {
+  outline: none;
+  background-color: var(--college-background-color);
+  box-shadow: 0 0 10px var(--college-primary-color);
+  transform: scale(1.02);
+}
+
+.add-achievement-form button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--college-primary-color);
+  color: var(--college-text);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-achievement-form button:hover {
+  background-color: var(--college-sky-blue);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.checkbox-label {
+  color: var(--college-text);
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+.checkbox-label:hover {
+  color: var(--college-sky-blue);
+}
+
+

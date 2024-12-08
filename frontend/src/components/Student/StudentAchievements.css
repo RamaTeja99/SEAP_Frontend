@@ -1,0 +1,126 @@
+.student-achievements {
+    background: linear-gradient(135deg, var(--student-background-color), var(--student-surface-color));
+    color: var(--student-text-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.student-achievements:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.student-achievements h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--student-primary-color);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--student-primary-color);
+    animation: spin 1s ease-in-out infinite;
+    margin: 2rem auto;
+}
+
+.achievement-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.achievement-item {
+    display: flex;
+    justify-content: space-between; /* Aligns the content and button */
+    align-items: center; /* Vertically centers the content */
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border: 0.1px solid var(--college-text);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.achievement-content h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--college-text);
+}
+
+.achievement-content p {
+    margin: 0 0 0.5rem;
+    color: var(--college-text);
+}
+
+.achievement-date {
+    font-size: 0.9rem;
+    color: var(--college-text);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.generate-certificate-button {
+    background-color: transparent;
+    color: var(--student-text);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.generate-certificate-button:hover {
+    background-color: transparent;
+    transform: translateY(-2px);
+}
+.download-icon {
+    font-size: 1.5rem; /* Increase icon size */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.achievement-item:nth-child(1) { animation-delay: 0.1s; }
+.achievement-item:nth-child(2) { animation-delay: 0.2s; }
+.achievement-item:nth-child(3) { animation-delay: 0.3s; }
+.achievement-item:nth-child(4) { animation-delay: 0.4s; }
+.achievement-item:nth-child(5) { animation-delay: 0.5s; }
+
+@media (max-width: 600px) {
+    .student-achievements {
+        padding: 1.5rem;
+    }
+
+    .student-achievements h2 {
+        font-size: 2rem;
+    }
+
+    .achievement-item {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,144 @@
+
+.add-student-form {
+  background: var(--college-background-color);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  max-width: 500px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.form-title {
+  color: var(--college-primary);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: slideIn 0.5s ease forwards;
+}
+
+.add-student-form label {
+  color: var(--college-text);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.add-student-form input {
+  width: 95%;
+
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: var(--college-background-color);
+  border: 1px solid var(--college-content-color);
+  color: var(--college-text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.add-student-form input:focus {
+  outline: none;
+  background-color: var(--college-background-color);
+  box-shadow: 0 0 10px var(--college-input-focus-shadow);
+}
+
+.add-student-form input::placeholder {
+  color: rgba(233, 69, 96, 0.7);
+}
+
+.add-student-form button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--college-background-colors);
+  color: var(--college-text);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-student-form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--college-primary-color);
+  transition: all 0.5s ease;
+}
+
+.add-student-form button:hover::before {
+  left: 100%;
+}
+
+.add-student-form button:hover {
+  background-color: var(--college-primary-color);
+  transform: scale(1.05);
+}
+
+.toggle-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.toggle-buttons button {
+  flex: 1;
+  margin: 0 0.5rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--college-primary-color);
+  color:var(--college-text);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-buttons button.active {
+  background-color: var(--college-surface-color);
+}
+
+.toggle-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.upload-csv.active {
+  display: block; /* Show when active */
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}

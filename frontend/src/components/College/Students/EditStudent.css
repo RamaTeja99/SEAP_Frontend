@@ -1,0 +1,205 @@
+/* Modern Edit Student Form Styles */
+.edit-student-form {
+  background: var(--college-background-color);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+  position: relative;
+  animation: formSlideIn 0.6s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+
+
+.edit-student-form h5 {
+  color: var(--college-text);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+
+.edit-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--college-text);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.edit-form-group:hover label {
+  color: var(--college-primary-color);
+}
+
+.edit-form-group input,
+.edit-form-group .css-b62m3t-container {
+  width: 95%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--college-background-colors);
+  border-radius: 8px;
+  background: var(--college-background-color);
+  color: var(--college-text-color);
+  transition: all 0.3s ease;
+}
+
+.edit-form-group input:focus {
+  outline: none;
+  border-color: var(--college-primary-color);
+  box-shadow: 0 0 0 4px rgba(249, 168, 40, 0.1);
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+/* Submit Button */
+.submit-button {
+  background: var(--college-primary-color);
+  color: var(--college-text);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+  background-color: var(--college-background-colors);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.submit-button:hover::after {
+  left: 100%;
+}
+
+/* Close Button */
+.close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--college-text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+/* Success/Error Messages */
+.success-message,
+.error-message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  animation: messageSlideIn 0.3s ease;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message {
+  background: rgba(72, 187, 120, 0.1);
+  color: #48bb78;
+  border: 1px solid #48bb78;
+}
+
+.error-message {
+  background: rgba(245, 101, 101, 0.1);
+  color: #f56565;
+  border: 1px solid #f56565;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-student-form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .form-group:hover {
+    transform: none;
+  }
+}
+
+/* Loading State */
+.submit-button.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.submit-button.loading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 
+
+/* Input Field Floating Labels */
+.edit-form-group {
+  position: relative;
+}
+
+.edit-form-group input:not(:placeholder-shown) + label,
+.edit-form-group input:focus + label {
+  transform: translateY(-24px) scale(0.8);
+  color: var(--college-primary-color);
+}

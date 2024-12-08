@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  /* Dark theme colors */
+  --college-dark-primary: #9CF6F6;
+  --college-dark-secondary: #E3B505;
+  --college-dark-background: #1F1300;
+  --college-dark-text: #F7F4F3;       
+  --college-dark-surface: #5D737E;       
+  --college-dark-sky-blue: #07617D;    
+  --college-dark-text-white: #fff;
+  --college-dark-content: #5D737E;
+  --college-dark-backgrounds: #8ca1aa;
+
+  /* Light theme colors */
+  --college-light-primary: #ffe149;
+  --college-light-secondary: #F5E1DA;
+  --college-light-background: #F8F8F8;
+  --college-light-text: #222831;        
+  --college-light-surface: rgba(255, 255, 255, 0.9); 
+  --college-light-sky-blue: #49BEB7;     
+  --college-light-content: #f7e8bb;  
+  --college-light-text-black: #000;
+  --college-light-content: #f7e8bb;
+  --college-light-backgrounds: #9fadb0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark {
+  --college-primary-color: var(--college-dark-primary);
+  --college-secondary-color: var(--college-dark-secondary);
+  --college-background-color: var(--college-dark-background);
+  --college-text-color: var(--college-dark-text);
+  --college-surface-color: var(--college-dark-surface);
+  --college-sky-blue: var(--college-dark-sky-blue);
+  --college-content-color: var(--college-dark-content);
+  --college-text: var(--college-dark-text-white);
+  --college-background-colors: var(--college-dark-backgrounds);
+}
+
+.light {
+  --college-primary-color: var(--college-light-primary);
+  --college-secondary-color: var(--college-light-secondary);
+  --college-background-color: var(--college-light-background);
+  --college-text-color: var(--college-light-text);
+  --college-surface-color: var(--college-light-surface);
+  --college-sky-blue: var(--college-light-sky-blue);
+  --college-content-color: var(--college-light-content);
+  --college-text: var(--college-light-text-black);
+  --college-background-colors: var(--college-light-backgrounds);
+}
+
+.college-dashboard {
+  min-height: 100vh;
+  background: var(--college-background-color);
+  color: var(--college-text-color);
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.college-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  background: var(--college-background-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px var(--navbar-shadow);
+  transition: background 0.3s ease;
+}
+.college-header:hover {
+  background: var(--surface-color);
+}
+
+.college-header h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0;
+  transition: color 0.3s ease;
+  color: var(--college-text-color);
+  margin-right: 100px;
+}
+
+.college-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.nav-links :nth-last-child(1){
+  margin-right: 60px;
+}
+
+.college-nav a {
+  color: var(--college-text-color);
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.college-nav a:hover {
+  background:linear-gradient(135deg, var(--college-primary-color), var(--college-surface-color));
+  transform: translateY(-3px) scale(1.05);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Content styling */
+.college-content {
+  flex-grow: 1;
+  background-color: var(--college-content-color);
+  border-radius: 10px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

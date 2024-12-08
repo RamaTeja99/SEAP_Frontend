@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.student-detail-container {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--college-background-color);
+  color: var(--college-text-color);
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: var(--college-text-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.achievements-toggle {
+  cursor: pointer;
+  color: var(--college-sky-blue-color);
+  font-weight: 600;
+  margin-top: 20px;
+  transition: color 0.3s ease;
+}
+
+.achievements-toggle:hover {
+  color: var(--college-primary-color);
+}
+
+.achievements-table-container {
+  max-height: 0;
+  overflow-y: auto;
+  transition: max-height 0.6s ease;
+  background-color: var(--college-background-color);
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.achievements-table-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.achievements-table-container::-webkit-scrollbar-thumb {
+  background-color: var(--college-secondary, #888);
+  border-radius: 4px;
+}
+
+.achievements-table-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--college-primary, #555);
+}
+
+.show-achievements .achievements-table-container {
+  max-height: 300px; /* Adjust height based on content */
+  overflow-y: auto;
+  
+}
+
+.achievements-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.achievements-table th,
+.achievements-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--college-text);
+}
+
+.achievements-table th {
+  background-color: var(--surface-colors);
+  font-weight: 600;
+}
+
+.achievements-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+button .delete-icon-button ,
+button .edit-icon-button ,
+button .download-icon-button {
+  margin: 0 5px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  color: var(--college-text);
+  background-color: transparent ;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {  
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.delete-icon-button :hover{
+  background-color: transparent;
+  color:red;
+}

@@ -1,0 +1,141 @@
+.photo-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.back {
+  position: absolute;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9ecef;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back:hover {
+  background: #dee2e6;
+}
+
+.back button {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.back button:hover {
+  color: #0056b3;
+}
+
+.photo-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background:var(--college-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-preview .placeholder {
+  font-size: 1rem;
+  color: #dee2e6;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem; /* Space between the buttons */
+  margin-top: 1.5rem;
+}
+
+.file-input-label,
+.primary-button {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Styling for Choose Photo button */
+.file-input-label {
+  background: #e9ecef;
+  color: #343a40;
+  border: none;
+}
+
+.file-input-label:hover {
+  background: #dee2e6;
+}
+
+/* Styling for Upload Photo button */
+.primary-button {
+  background: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary-button:disabled {
+  background: #ccc;
+  border-radius: 4px;
+  padding: 0.8rem 1rem 1rem;
+  cursor: not-allowed;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #0056b3;
+  
+}
+
+.message-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  animation: slideIn 0.3s ease;
+}
+
+.message-toast.success {
+  background: #28a745;
+}
+
+.message-toast.info {
+  background: #17a2b8;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-upload-container {
+    padding: 1rem;
+  }
+}

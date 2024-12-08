@@ -1,0 +1,140 @@
+.addcollege-container {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.addcollege-form {
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 15px 35px var(--navbar-shadow);
+  animation: fadeIn 0.5s ease-out;
+  margin-bottom: 10px;
+}
+
+.addcollege-form-header {
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  animation: slideDown 0.5s ease-out;
+}
+
+.addcollege-form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.addcollege-form-label {
+  display: block;
+  color: var(--text-color);
+  margin-bottom: 5px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.addcollege-form-input {
+  width: 100%;
+  padding: 12px;
+  background:  var(--surface-color);
+  border: none;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.addcollege-form-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--secondary-color);
+}
+
+.addcollege-form-input:focus + .addcollege-form-label {
+  transform: translateY(-25px);
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+.addcollege-submit-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--surface-color), var(--primary-color));
+  border: none;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.addcollege-submit-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.addcollege-submit-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.addcollege-submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.addcollege-success-message,
+.addcollege-error-message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.addcollege-success-message {
+  background-color: var(--success-color);
+  color: var(--text-color);
+}
+
+.addcollege-error-message {
+  background-color: var(--error-color);
+  color: var(--text-color);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .addcollege-form {
+    padding: 20px;
+  }
+}
