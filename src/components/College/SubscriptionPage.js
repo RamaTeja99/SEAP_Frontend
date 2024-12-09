@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { getTokenInfo } from "../../utils/tokenUtils"; // Assuming this utility gives you token data
+import { createPaymentOrder, verifyPayment } from "../../api"; // Import the new API functions
 import "./SubscriptionPage.css";
 
 const SubscriptionPage = () => {
@@ -16,13 +17,19 @@ const SubscriptionPage = () => {
 
     const handleSubscribe = async () => {
         try {
-            const amount = 99900.0; // Amount in paise (₹999)
-            // Send request to create an order with the amount
-            const response = await axios.post(`seapbackend-production.up.railway.app/api/payments/create-order/${collegeId}?amount=${amount}`);
-            const order = response.data;
+            const amount = process.env.REACT_APP_PAYMENT_AMOUNT; // Amount in paise (₹999) from env variable
+            const razorpayKey = process.env.REACT_APP_RAZORPAY_KEY; // Razorpay key from env variable
+
+            if (!razorpayKey) {
+                alert("Razorpay key is not set!");
+                return;
+            }
+
+            // Call the API function to create the payment order
+            const order = await createPaymentOrder(collegeId, amount);
 
             const options = {
-                key: "rzp_test_09PJY0SdHcAB2O", // Replace with your Razorpay Key
+                key: razorpayKey, // Razorpay Key from env variable
                 amount: order.amount,
                 currency: order.currency,
                 order_id: order.id,
@@ -30,14 +37,22 @@ const SubscriptionPage = () => {
                 description: "Unlock exclusive features including Certificate Generation",
                 handler: async (response) => {
                     try {
-                        // Send payment verification details to the backend
                         const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = response;
 
-                        await axios.post(
-                            `http://seapbackend-production.up.railway.app/api/payments/success?razorpayOrderId=${razorpay_order_id}&razorpayPaymentId=${razorpay_payment_id}&razorpaySignature=${razorpay_signature}`
+                        // Use the verifyPayment API function
+                        const verificationResponse = await verifyPayment(
+                            razorpay_order_id, 
+                            razorpay_payment_id, 
+                            razorpay_signature
                         );
-                        alert("Subscription successful! Welcome to Premium.");
-                        navigate("/college/dashboard");
+
+                        // Check the response from the verification API
+                        if (verificationResponse.success) {
+                            alert("Subscription successful! Welcome to Premium.");
+                            navigate("/college/dashboard");
+                        } else {
+                            alert("Payment verification failed! Please try again.");
+                        }
                     } catch (error) {
                         console.error("Payment verification failed:", error);
                         alert("Payment verification failed! Please try again.");

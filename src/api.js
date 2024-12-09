@@ -49,6 +49,36 @@ export const logout = async () => {
         throw error;
     }
 };
+export const createPaymentOrder = async (collegeId, amount) => {
+    try {
+        const response = await axios.post(`${API_URL}/payments/create-order/${collegeId}?amount=${amount}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error creating payment order:', error);
+        throw error;
+    }
+};
+
+export const verifyPayment = async (razorpayOrderId, razorpayPaymentId, razorpaySignature) => {
+    try {
+        const response = await axios.post(
+            `${API_URL}/payments/success`,
+            null,
+            {
+                params: {
+                    razorpayOrderId,
+                    razorpayPaymentId,
+                    razorpaySignature
+                }
+            }
+        );
+        return response.data;
+    } catch (error) {
+        console.error('Error verifying payment:', error);
+        throw error;
+    }
+};
+
 export const sendMail = async (to, subject, text) => {
     try {
         const response = await axios.post(`${API_URL}/mail/send`, { to, subject, text });
