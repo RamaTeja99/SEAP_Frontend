@@ -7,13 +7,17 @@ const Background3D = () => {
     const basketballsRef = useRef([]);
 
     useEffect(() => {
+        // Capture the current values of refs
+        const mount = mountRef.current;
+        const basketballs = basketballsRef.current;
+
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
 
-        if (mountRef.current) {
-            mountRef.current.appendChild(renderer.domElement);
+        if (mount) {
+            mount.appendChild(renderer.domElement);
         }
 
         const ballModel = '/models/basketball.fbx';
@@ -32,7 +36,7 @@ const Background3D = () => {
                     );
                     basketball.userData = { originalScale: basketball.scale.clone() };
                     scene.add(basketball);
-                    basketballsRef.current.push(basketball);
+                    basketballs.push(basketball);
                 } catch (error) {
                     console.error('Error loading model:', error);
                 }
@@ -54,7 +58,7 @@ const Background3D = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
-            basketballsRef.current.forEach(basketball => {
+            basketballs.forEach(basketball => {
                 basketball.rotation.x += 0.005;
                 basketball.rotation.y += 0.005;
                 basketball.position.y += Math.sin(Date.now() * 0.001 + basketball.position.x) * 0.002;
@@ -74,9 +78,9 @@ const Background3D = () => {
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
             raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects(basketballsRef.current, true);
+            const intersects = raycaster.intersectObjects(basketballs, true);
 
-            basketballsRef.current.forEach(basketball => {
+            basketballs.forEach(basketball => {
                 if (intersects.find(intersect => intersect.object === basketball || basketball.children.includes(intersect.object))) {
                     basketball.scale.lerp(basketball.userData.originalScale.clone().multiplyScalar(1.2), 0.1);
                     const direction = new THREE.Vector3().subVectors(basketball.position, camera.position).normalize();
@@ -91,17 +95,17 @@ const Background3D = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
-            basketballsRef.current.forEach(basketball => {
+            basketballs.forEach(basketball => {
                 scene.remove(basketball);
                 basketball.geometry?.dispose();
                 basketball.material?.dispose();
             });
-            if (mountRef.current && renderer.domElement) {
-                mountRef.current.removeChild(renderer.domElement);
+            if (mount && renderer.domElement) {
+                mount.removeChild(renderer.domElement);
             }
             renderer.dispose();
         };
-    }, []);
+    }, []); // Empty dependency array, meaning it runs only once on mount
 
     return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }} />;
 };
