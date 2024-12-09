@@ -19,6 +19,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
     response => response,
     error => {
+        console.error('API Error:', error.response || error.message);
         if (error.response && error.response.status === 401) {
             // Clear local storage and redirect to login
             localStorage.removeItem('token');

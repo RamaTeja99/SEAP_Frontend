@@ -18,7 +18,7 @@ const SubscriptionPage = () => {
         try {
             const amount = 99900.0; // Amount in paise (₹999)
             // Send request to create an order with the amount
-            const response = await axios.post(`http://localhost:8080/api/payments/create-order/${collegeId}?amount=${amount}`);
+            const response = await axios.post(`seapbackend-production.up.railway.app/api/payments/create-order/${collegeId}?amount=${amount}`);
             const order = response.data;
 
             const options = {
@@ -34,7 +34,7 @@ const SubscriptionPage = () => {
                         const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = response;
 
                         await axios.post(
-                            `http://localhost:8080/api/payments/success?razorpayOrderId=${razorpay_order_id}&razorpayPaymentId=${razorpay_payment_id}&razorpaySignature=${razorpay_signature}`
+                            `http://seapbackend-production.up.railway.app/api/payments/success?razorpayOrderId=${razorpay_order_id}&razorpayPaymentId=${razorpay_payment_id}&razorpaySignature=${razorpay_signature}`
                         );
                         alert("Subscription successful! Welcome to Premium.");
                         navigate("/college/dashboard");

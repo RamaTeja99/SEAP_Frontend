@@ -51,6 +51,7 @@ const Login = () => {
                 }
             }
         } catch (error) {
+            console.error('Login error:', error);
             setError('Login failed. Please check your credentials.');
             localStorage.removeItem('token');
             localStorage.removeItem('lastActivity');
