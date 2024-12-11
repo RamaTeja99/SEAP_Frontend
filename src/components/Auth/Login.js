@@ -14,7 +14,40 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validate username and password length
+        if (username === 'admin' && password === 'admin') {
+            try {
+                const response = await login(username, password);
+
+                if (response.status === 200 && response.data) {
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('lastActivity', new Date().getTime());
+
+                    const tokenInfo = getTokenInfo();
+                    if (tokenInfo) {
+                        switch (tokenInfo.role) {
+                            case 'admin':
+                                navigate('/admin/dashboard/colleges');
+                                break;
+                            case 'college':
+                                navigate('/college/dashboard/students');
+                                break;
+                            case 'student':
+                                navigate('/student/dashboard/achievements');
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                setError('Login failed. Please check your credentials.');
+                localStorage.removeItem('token');
+                localStorage.removeItem('lastActivity');
+            }
+            return;
+        }
+
         if (username.length < 8) {
             setError('Username must be exactly 8 characters long.');
             return;
