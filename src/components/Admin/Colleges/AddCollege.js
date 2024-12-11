@@ -39,7 +39,10 @@ const AddCollege = () => {
                 throw new Error('Failed to create college user');
             }
             try {
-                const emailBody = `Your username is ${userResponse.data.username} and password is ${userResponse.data.password}. Please do not share your credentials with anyone. Thanks for using SEA.`;
+                const emailBody = `Your username is ${userResponse.data.username} and password is ${userResponse.data.password}. Please do not share your credentials with anyone. 
+                                    
+                                    Thanks for using SEA.
+                                    Login at https://seap.netlify.app/ for further details`;
                 await sendMail(
                     savedCollege.email,
                     'College Credentials from SEA',
