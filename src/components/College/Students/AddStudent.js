@@ -183,7 +183,9 @@ const AddStudent = () => {
             const userResponse = await addStudentUser(user);
             setMessage({ type: 'success', text: 'Student added successfully!' });
             try {
-                const emailBody = `Hello ${response.data.name},\n\nWelcome to our platform!\nYour credentials are:\n  Username: ${userResponse.data.username}\n  Password: ${userResponse.data.password}\n\nThank you.`;
+                const emailBody = `Hello ${response.data.name},\n\nWelcome to our platform!\nYour credentials are:\n  Username: ${userResponse.data.username}\n  Password: ${userResponse.data.password}\n\n
+                 Please do not share your credentials with anyone.\n\n
+                 Login at https://seap.netlify.app/ for further details`;
                 await sendMail(response.data.email, 'Your Student Credentials', emailBody);
                 setMessage({ type: 'success', text: 'Student added successfully and email sent!' });
             } catch {
