@@ -39,8 +39,8 @@ const AddCollege = () => {
                 throw new Error('Failed to create college user');
             }
             try {
-                const emailBody = `Your username is ${userResponse.data.username} and password is ${userResponse.data.password}. 
-                                   Please do not share your credentials with anyone.
+                const emailBody = `Your username is ${userResponse.data.username} and password is ${userResponse.data.password}.\n\n
+                                   Please do not share your credentials with anyone.\n\n
                                    Login at https://seap.netlify.app/ for further details`;
                 await sendMail(
                     savedCollege.email,
